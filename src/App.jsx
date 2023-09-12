@@ -26,9 +26,7 @@ function App() {
   };
 
   const handleChange = (event) => {
-    if (event.charCode < 48 || event.charCode > 57) {
-      event.preventDefault(); // Prevent the input of non-numeric characters
-    } else setSalary(event.target.value);
+    setSalary(event.target.value);
   };
 
   const handleClear = () => {
