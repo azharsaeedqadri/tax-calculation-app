@@ -4,11 +4,11 @@ import "./App.css";
 // constants
 const ENTER_KEY = 13;
 const FIRST_SLAB = "0%";
-const SECOND_SLAB = "15% of amount exceeding 600,000";
-const THIRD_SLAB = "90,000 + 20% of amount exceeding 1,200,000";
-const FOURTH_SLAB = "170,000 + 30% of amount exceeding 1,600,000";
-const FIFTH_SLAB = "650,000 + 40% of amount exceeding 3,600,000";
-const SIXTH_SLAB = "1,610,000 + 45% of amount exceeding 5,600,000";
+const SECOND_SLAB = "5% of amount exceeding 600,000";
+const THIRD_SLAB = "30,000 + 15% of amount exceeding 1,200,000";
+const FOURTH_SLAB = "180,000 + 25% of amount exceeding 2,200,000";
+const FIFTH_SLAB = "430,000 + 30% of amount exceeding 3,200,000";
+const SIXTH_SLAB = "700,000 + 35% of amount exceeding 4,100,000";
 const FORMAT_NUMBERS_REGEX = /\B(?=(\d{3})+(?!\d))/g;
 
 function App() {
@@ -54,28 +54,28 @@ function App() {
         setSlabDetails(FIRST_SLAB);
         break;
       case yearlySalary <= 1_200_000:
-        // 0.15 is for 15%
-        yearlyTaxDeduction = (yearlySalary - 6_00_000) * 0.15;
+        // 0.05 is for 5%
+        yearlyTaxDeduction = (yearlySalary - 6_00_000) * 0.05;
         setSlabDetails(SECOND_SLAB);
         break;
-      case yearlySalary <= 1_600_000:
-        // 0.2 is for 20%
-        yearlyTaxDeduction = 90_000 + (yearlySalary - 1_200_000) * 0.2;
+      case yearlySalary <= 2_200_000:
+        // 0.15 is for 15%
+        yearlyTaxDeduction = 30_000 + (yearlySalary - 1_200_000) * 0.15;
         setSlabDetails(THIRD_SLAB);
         break;
-      case yearlySalary <= 3_600_000:
-        // 0.3 is for 30%
-        yearlyTaxDeduction = 170_000 + (yearlySalary - 1_600_000) * 0.3;
+      case yearlySalary <= 3_200_000:
+        // 0.25 is for 25%
+        yearlyTaxDeduction = 180_000 + (yearlySalary - 2_200_000) * 0.25;
         setSlabDetails(FOURTH_SLAB);
         break;
-      case yearlySalary <= 5_600_000:
-        // 0.4 is for 40%
-        yearlyTaxDeduction = 650_000 + (yearlySalary - 3_600_000) * 0.4;
+      case yearlySalary <= 4_100_000:
+        // 0.3 is for 30%
+        yearlyTaxDeduction = 430_000 + (yearlySalary - 3_200_000) * 0.3;
         setSlabDetails(FIFTH_SLAB);
         break;
       default:
-        // 0.45 is for 45%
-        yearlyTaxDeduction = 1_610_000 + (yearlySalary - 5_600_000) * 0.45;
+        // 0.35 is for 35%
+        yearlyTaxDeduction = 700_000 + (yearlySalary - 4_100_000) * 0.35;
         setSlabDetails(SIXTH_SLAB);
     }
 
